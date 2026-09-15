@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path='/' element={<PackOpener />}/>
+        <Route path='/Cloak-Pack-Opener' element={<PackOpener />}/>
       </Routes>
       <Footer />
     </div>

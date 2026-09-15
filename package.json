@@ -1,9 +1,10 @@
 {
   "name": "cloak-pack-opening-sim",
   "version": "0.1.0",
-  "homepage": "https://ciara1b.github.io/cloak-pack-opener",
+  "homepage": "https://ciara1b.github.io/Cloak-Pack-Opener",
   "private": false,
   "dependencies": {
+    "@vitejs/plugin-react": "6.0.3",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -12,17 +13,14 @@
     "react-bootstrap": "^2.10.10",
     "react-dom": "^18.3.1",
     "react-peel": "^0.1.3",
-    "react-router-dom": "^6.27.0",
-    "react-scripts": "5.0.1",
+    "react-router-dom": "^7.18.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -43,7 +41,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-transform-private-property-in-object": "^7.25.8",
     "gh-pages": "^6.2.0"
   }
 }
