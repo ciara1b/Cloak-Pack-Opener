@@ -36,6 +36,7 @@ const FiltersComponent = (props) => {
 
     useEffect(() => {
       searchName();
+      // eslint-disable-next-line 
     }, [searchTarget]);
 
     return (

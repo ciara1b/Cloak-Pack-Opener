@@ -9,20 +9,20 @@ const ListStockComponent = (props) => {
 
   const formatCardsStock = () => {
     let formattedCards = {};
-    Object.entries(props.cardsStock).map(([key, value]) => {
-        let pair = key.split(",");
-        if (pair[0] in formattedCards) {
-          if (pair[1] in formattedCards[pair[0]][0]) {
-            let i = formattedCards[pair[0]][0].findIndex(ele => ele === parseInt(pair[1]));
-            formattedCards[pair[0]][1][i] += 1;
-          } else {
-            formattedCards[pair[0]][0].push(parseInt(pair[1]));
-            formattedCards[pair[0]][1].push(1);
-          }
+    for (const key in props.cardsStock) {
+      let pair = key.split(",");
+      if (pair[0] in formattedCards) {
+        if (pair[1] in formattedCards[pair[0]][0]) {
+          let i = formattedCards[pair[0]][0].findIndex(ele => ele === parseInt(pair[1]));
+          formattedCards[pair[0]][1][i] += 1;
         } else {
-          formattedCards[pair[0]] = [[parseInt(pair[1])], [value]];
+          formattedCards[pair[0]][0].push(parseInt(pair[1]));
+          formattedCards[pair[0]][1].push(1);
         }
-    });
+      } else {
+        formattedCards[pair[0]] = [[parseInt(pair[1])], [props.cardsStock[key]]];
+      }
+    }
 
     let sortedCards = Object.fromEntries(Object.entries(formattedCards).sort((a, b) => a[0].localeCompare(b[0])));
     setCardList(sortedCards);
@@ -45,6 +45,7 @@ const ListStockComponent = (props) => {
 
   useEffect(() => {
     formatCardsStock();
+    // eslint-disable-next-line 
   }, [props.cardsStock]);
 
   return (

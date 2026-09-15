@@ -9,10 +9,10 @@ const FileReaderComponent = (props) => {
 
     const exportToCsv = () => {
         var CsvString = "Name,Value,Total Owned,\r\n";
-        Object.entries(props.savedCards).map(([key, value]) => {
+        for (const key in props.savedCards) {
             let pair = key.split(",");
-            CsvString += pair[0].split("\r")[0] + "," + pair[1] + "," + value + "\r\n";
-        });
+            CsvString += pair[0].split("\r")[0] + "," + pair[1] + "," + props.savedCards[key] + "\r\n";
+        }
         CsvString = "data:application/csv," + encodeURIComponent(CsvString);
         var x = document.createElement("A");
         x.setAttribute("href", CsvString);
